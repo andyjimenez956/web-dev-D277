@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+        function validateForm() {
+            const name = document.forms["contactForm"]["name"].value;
+            const email = document.forms["contactForm"]["email"].value;
+            const message = document.forms["contactForm"]["message"].value;
+            if (name === "" || email === "" || message === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    </head>
+    <body>
+    <header>
+      <h1>Contact Us</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="austin.html">Austin</a></li>
+        <li><a href="sanantonio.html">San Antonio</a></li>
+        <li><a href="mcallen.html">McAllen</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>We'd Love to Hear From You</h2>
+            <form name="contact-form" onsubmit="return validateForm()" method="post" action="#">
+                <label for="fname">First Name:</label><br />
+                <input type="text" id="fname" name="fname" /><br /><br />
+
+                <label for="fname">Last Name:</label><br />
+                <input type="text" id="lname" name="lname" /><br /><br />
+                
+                <label for="email">Email:</label><br />
+                <input type="text" id="email" name="email" /><br /><br />
+                
+                <label for="message">Your Question:</label><br />
+                <textarea id="question" name="question" rows="5" cols="30"></textarea><br /><br />
+                
+                <button type="submit">Submit</button>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Texas Information Website | D277</p>
+        </footer>
+    </main>
+    </body>
